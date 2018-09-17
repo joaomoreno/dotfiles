@@ -1,0 +1,2 @@
+# set default editor for text/plain
+xdg-mime default code-insiders.desktop text/plain

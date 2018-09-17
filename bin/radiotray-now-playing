@@ -1,0 +1,10 @@
+#!/bin/sh
+
+META=`dbus-send --print-reply --dest=com.github.radiotray_ng /com/github/radiotray_ng com.github.radiotray_ng.get_player_state 2> /dev/null`
+STATUS=$(echo $META | sed 's/^.*"state"\s*:\s*"\([^"]*\)".*$/\1/')
+
+if [[ "$STATUS" == "playing" ]]; then
+	ARTIST=$(echo $META | sed 's/^.*"artist"\s*:\s*"\([^"]*\)".*$/\1/')
+	TITLE=$(echo $META | sed 's/^.*"title"\s*:\s*"\([^"]*\)".*$/\1/')
+	echo "$ARTIST - $TITLE"
+fi

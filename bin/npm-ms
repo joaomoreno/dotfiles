@@ -1,0 +1,2 @@
+#!/bin/sh
+npm_config_userconfig=$HOME/.npm-msrc npm $@
