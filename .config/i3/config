@@ -184,8 +184,15 @@ exec --no-startup-id compton -b
 # Gnome
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
+# Polkit
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 # Keyboard repeat rate
 exec --no-startup-id xset r rate 280 35
 
 # Radio
 exec --no-startup-id radiotray-ng
+
+# Screenshots
+bindsym --release $mod+Shift+p exec --no-startup-id gnome-screenshot
+bindsym --release $mod+Shift+o exec --no-startup-id gnome-screenshot --area

@@ -8,7 +8,7 @@ UPDATE_URL="https://vscode-update.azurewebsites.net/api/update/linux-x64/insider
 
 echo "Fetching $UPDATE_URL..."
 UPDATE_RESPONSE_FILE=$(mktemp)
-UPDATE_RESPONSE_CODE=$(curl --silent --output $UPDATE_RESPONSE_FILE --write-out "%{http_code}" $UPDATE_URL)
+UPDATE_RESPONSE_CODE=$(curl -L --silent --output $UPDATE_RESPONSE_FILE --write-out "%{http_code}" $UPDATE_URL)
 
 if [ $UPDATE_RESPONSE_CODE -ne 200 ]; then
 	echo "Got $UPDATE_RESPONSE_CODE from server, update not available"

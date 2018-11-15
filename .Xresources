@@ -2,3 +2,4 @@
 URxvt.scrollBar:	false
 URxvt.font:		xft:Fira Code Medium:pixelsize=14:antialias=true:hinting=true
 URxvt.boldFont:		xft:Fira Code Medium:bold:pixelsize=14:antialias=true:hinting=true
+Xcursor.size:		16
