@@ -8,9 +8,5 @@ do
 	if [[ "$SPOTIFY" != "" ]]; then
 		PLAYING="$SPOTIFY | "
 	fi
-	RADIOTRAY=$($HOME/bin/radiotray-now-playing)
-	if [[ "$RADIOTRAY" != "" ]]; then
-		PLAYING="$RADIOTRAY | "
-	fi
 	echo "$PLAYING$INPUT" || exit 1
 done
