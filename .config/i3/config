@@ -121,6 +121,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # assign apps to workspaces
 for_window [class="Spotify"] move to workspace 4
 assign [class="Code - Insiders"] 2
+assign [class="code-oss-dev"] 2
 for_window [class="Ibus-ui-gtk3"] floating enable
 
 # reload the configuration file
@@ -154,7 +155,9 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+#bindsym $mod+r mode "resize"
+
+bindsym $mod+r sticky toggle
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
