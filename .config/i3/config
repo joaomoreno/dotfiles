@@ -119,9 +119,14 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
 # assign apps to workspaces
-for_window [class="Spotify"] move to workspace 4
+for_window [class="Google-chrome"] move to workspace 1
+for_window [class="Google-chrome"] border pixel 0
 assign [class="Code - Insiders"] 2
 assign [class="code-oss-dev"] 2
+for_window [class="Slack"] move to workspace 3
+for_window [class="Slack"] border pixel 0
+for_window [class="Spotify"] move to workspace 4
+for_window [class="Spotify"] border pixel 0
 for_window [class="Ibus-ui-gtk3"] floating enable
 
 # reload the configuration file
@@ -195,6 +200,9 @@ exec --no-startup-id light-locker --lock-on-suspend
 
 # compton
 exec --no-startup-id compton -b
+
+# Keyboard layouts
+exec --no-startup-id setxkbmap -model pc105 -layout us,us -variant ,intl -option grp:alt_space_toggle
 
 # Keyboard repeat rate
 exec --no-startup-id xset r rate 280 35
