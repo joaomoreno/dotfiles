@@ -31,7 +31,7 @@ font pango:Noto Sans 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -122,8 +122,8 @@ for_window [class="Google-chrome"] border pixel 0
 assign [class="Code - Insiders"] 2
 for_window [class="Slack"] border pixel 0
 for_window [class="Slack"] move to workspace 3
-for_window [class="teams-for-linux"] border pixel 0
-for_window [class="teams-for-linux"] move to workspace 3
+for_window [class="Teams for Linux"] border pixel 0
+for_window [class="Teams for Linux"] move to workspace 3
 for_window [class="Spotify"] move to workspace 4
 for_window [class="Spotify"] border pixel 0
 for_window [class="Ibus-ui-gtk3"] floating enable
@@ -188,7 +188,7 @@ bindsym --release $mod+shift+o exec screenshot -a
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
 # Wallpaper
-exec --no-startup-id ~/.fehbg &
+exec --no-startup-id feh --randomize --bg-center ~/Pictures/Wallpapers/*
 
 # Redshift
 exec --no-startup-id redshift -l 47.22:8.33

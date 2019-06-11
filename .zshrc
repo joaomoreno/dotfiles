@@ -108,5 +108,3 @@ export EDITOR="vim"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export PATH=$PATH:/home/joao/bin
-
-source '/home/joao/lib/azure-cli/az.completion'
