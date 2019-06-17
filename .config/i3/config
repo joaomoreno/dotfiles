@@ -122,8 +122,8 @@ for_window [class="Google-chrome"] border pixel 0
 assign [class="Code - Insiders"] 2
 for_window [class="Slack"] border pixel 0
 for_window [class="Slack"] move to workspace 3
-for_window [class="teams-for-linux"] border pixel 0
-for_window [class="teams-for-linux"] move to workspace 3
+for_window [class="Teams for Linux"] border pixel 0
+for_window [class="Teams for Linux"] move to workspace 3
 for_window [class="Spotify"] move to workspace 4
 for_window [class="Spotify"] border pixel 0
 for_window [class="Ibus-ui-gtk3"] floating enable
@@ -179,10 +179,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ #increa
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # mute sound
 
-# Screenshots
-bindsym --release $mod+shift+p exec screenshot
-bindsym --release $mod+shift+o exec screenshot -a
-
 # Gnome
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
@@ -208,8 +204,7 @@ exec --no-startup-id xset r rate 280 35
 exec --no-startup-id radiotray
 
 # Screenshots
-bindsym --release $mod+Shift+p exec --no-startup-id gnome-screenshot
-bindsym --release $mod+Shift+o exec --no-startup-id gnome-screenshot --area
+bindsym --release $mod+Shift+o exec --no-startup-id import - | convert - png:- | xclip -selection clipboard -target image/png -i
 
 # File Explorer
 bindsym $mod+y exec --no-startup-id nautilus
