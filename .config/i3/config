@@ -14,7 +14,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
-font pango:Roboto Medium 8 
+font pango:Noto Sans 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -31,7 +31,7 @@ font pango:Roboto Medium 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -160,6 +160,7 @@ mode "resize" {
 }
 
 #bindsym $mod+r mode "resize"
+bindsym $mod+r sticky toggle
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -175,15 +176,15 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%- #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id amixer set Headphone toggle # mute sound
 
 # Gnome
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 
 # Wallpaper
-exec --no-startup-id ~/.fehbg &
+exec --no-startup-id feh --randomize --bg-center ~/Pictures/Wallpapers/*
 
 # Redshift
 exec --no-startup-id redshift -l 47.22:8.33
@@ -197,6 +198,9 @@ exec --no-startup-id light-locker --lock-on-suspend
 # compton
 exec --no-startup-id compton -b
 
+# Keyboard layouts
+exec --no-startup-id setxkbmap -model pc105 -layout us,us -variant ,intl -option grp:alt_space_toggle
+
 # Keyboard repeat rate
 exec --no-startup-id xset r rate 280 35
 
@@ -208,6 +212,3 @@ bindsym --release $mod+Shift+o exec --no-startup-id import - | convert - png:- |
 
 # File Explorer
 bindsym $mod+y exec --no-startup-id nautilus
-
-# Sticky Mode
-bindsym $mod+r sticky toggle
