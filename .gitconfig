@@ -10,7 +10,7 @@
 	pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 	pr-merge = "!f() { PR=$(git symbolic-ref HEAD) && ([[ \"$PR\" == \"refs/heads/pr/\"* ]] && (git checkout master && git merge $PR) || echo \"HEAD is not a PR branch: $PR\"); }; f"
 [pull]
-	rebase = true
+	rebase = merges
 [includeIf "gitdir:~/Work/**"]
 	path = ~/.gitconfig.work
 [filter "lfs"]

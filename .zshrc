@@ -105,8 +105,6 @@ alias gds="mplayer http://gdsfm.out.airtime.pro:8000/gdsfm_a"
 export PATH="$HOME/bin:$PATH"
 export EDITOR="vim"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-export PATH=$PATH:/home/joao/bin
-
-source '/home/joao/lib/azure-cli/az.completion'
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
