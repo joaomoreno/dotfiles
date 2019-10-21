@@ -169,9 +169,9 @@ bindsym $mod+r sticky toggle
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command /home/joao/.i3status.sh
-}
+#bar {
+#        status_command /home/joao/.i3status.sh
+#}
 
 # ***** CUSTOM
 
@@ -219,3 +219,6 @@ bindsym --release $mod+Shift+p exec --no-startup-id import -window root - | conv
 
 # File Explorer
 bindsym $mod+y exec --no-startup-id nautilus
+
+# Start Polybar
+exec_always --no-startup-id $HOME/bin/launch-polybar.sh

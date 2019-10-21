@@ -1,10 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
-META=`dbus-send --print-reply --dest=com.github.radiotray_ng /com/github/radiotray_ng com.github.radiotray_ng.get_player_state 2> /dev/null`
-STATUS=$(echo $META | sed 's/^.*"state"\s*:\s*"\([^"]*\)".*$/\1/')
+getCurrentRadio() {
+	dbus-send --print-reply=literal --dest=net.sourceforge.radiotray /net/sourceforge/radiotray net.sourceforge.radiotray.getCurrentRadio 2> /dev/null | xargs
+}
 
-if [[ "$STATUS" == "playing" ]]; then
-	ARTIST=$(echo $META | sed 's/^.*"artist"\s*:\s*"\([^"]*\)".*$/\1/')
-	TITLE=$(echo $META | sed 's/^.*"title"\s*:\s*"\([^"]*\)".*$/\1/')
-	echo "$ARTIST - $TITLE"
+getCurrentMetaData() {
+	dbus-send --print-reply=literal --dest=net.sourceforge.radiotray /net/sourceforge/radiotray net.sourceforge.radiotray.getCurrentMetaData 2> /dev/null | xargs
+}
+
+RADIO=$(getCurrentRadio)
+
+if [[ ! -z "$RADIO" && "$RADIO" != *"not playing"* ]]; then
+	echo "$RADIO | $(getCurrentMetaData)"
 fi
