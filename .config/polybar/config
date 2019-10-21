@@ -58,7 +58,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = radiotray
-modules-right = alsa cpu memory eth temperature date powermenu
+modules-right = alsa cpu memory date powermenu
 
 tray-position = right 
 tray-padding = 2
@@ -264,11 +264,11 @@ interval = 5
 date = %Y-%m-%d
 time = %H:%M
 
-format-prefix = 
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %time% %date%
+label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
