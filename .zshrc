@@ -106,5 +106,6 @@ export PATH="$HOME/bin:$PATH"
 export EDITOR="vim"
 
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

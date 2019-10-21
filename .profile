@@ -30,3 +30,5 @@ fi
 if [ "$DESKTOP_SESSION" = "i3" ]; then
 	export $(gnome-keyring-daemon -s)
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"

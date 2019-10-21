@@ -130,6 +130,7 @@ for_window [class="Spotify"] move to workspace 4
 for_window [class="Spotify"] border pixel 0
 for_window [class="Ibus-ui-gtk3"] floating enable
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Peek"] floating enable
 for_window [class="Telegram"] move to workspace 9
 for_window [class="Telegram"] border pixel 0
 
@@ -176,9 +177,9 @@ bindsym $mod+r sticky toggle
 # ***** CUSTOM
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl --player spotify play-pause
-bindsym XF86AudioNext exec playerctl --player spotify next
-bindsym XF86AudioPrev exec playerctl --player spotify previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -222,3 +223,7 @@ bindsym $mod+y exec --no-startup-id nautilus
 
 # Start Polybar
 exec_always --no-startup-id $HOME/bin/launch-polybar.sh
+
+# Scratchpad
+bindsym $mod+Shift+n move scratchpad
+bindsym $mod+n scratchpad show
