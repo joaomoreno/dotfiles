@@ -416,6 +416,13 @@ format-prefix = " "
 format = <label>
 exec = radiotray-now-playing
 
+[module/now-playing]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = now-playing
+
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
