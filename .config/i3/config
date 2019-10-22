@@ -216,8 +216,8 @@ exec --no-startup-id xset r rate 280 35
 exec --no-startup-id radiotray
 
 # Screenshots
-bindsym --release $mod+Shift+o exec --no-startup-id import - | convert - png:- | tee "$HOME/Pictures/$(date '+Screenshot from %x %X.png')" | xclip -selection clipboard -target image/png -i
-bindsym --release $mod+Shift+p exec --no-startup-id import -window root - | convert - png:- | tee "$HOME/Pictures/$(date '+Screenshot from %x %X.png')" | xclip -selection clipboard -target image/png -i
+bindsym --release $mod+Shift+o exec --no-startup-id import - | convert - png:- | tee "$HOME/Pictures/$(date '+Screenshot from %c.png')" | xclip -selection clipboard -target image/png -i
+bindsym --release $mod+Shift+p exec --no-startup-id import -window root - | convert - png:- | tee "$HOME/Pictures/$(date '+Screenshot from %x.png')" | xclip -selection clipboard -target image/png -i
 
 # File Explorer
 bindsym $mod+y exec --no-startup-id nautilus
