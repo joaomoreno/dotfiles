@@ -1,12 +1,12 @@
 #!/bin/bash
-STATUS=$(playerctl status 2> /dev/null)
+STATUS=$(playerctl -p spotify status 2> /dev/null)
 
 if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-if [[ $(playerctl status) != "Playing" ]]; then
+if [[ "$STATUS" != *"Playing"* ]]; then
 	exit 1
 fi
 
-echo "$(playerctl metadata xesam:artist) - $(playerctl metadata xesam:title)"
+echo "$(playerctl metadata xesam:artist 2> /dev/null) - $(playerctl metadata xesam:title 2> /dev/null)"
