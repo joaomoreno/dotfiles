@@ -196,9 +196,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # Wallpaper
 exec --no-startup-id feh --randomize --bg-center ~/Pictures/Wallpapers/*
 
-# Redshift
-exec --no-startup-id redshift -l 47.22:8.33
-
 # Keyboard
 exec --no-startup-id setxkbmap us,us -variant ,intl -option grp:alt_space_toggle
 
