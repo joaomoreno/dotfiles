@@ -30,7 +30,8 @@ alert = #bd2c40
 [bar/joao]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 24
+;height = 46
+height = 26 
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 6.0
@@ -53,13 +54,14 @@ module-margin-left = 1
 module-margin-right = 2
 
 ;font-0 = fixed:pixelsize=10;1
-font-0 = "Noto Sans Bold:size=9;1"
+;font-0 = "Noto Sans Bold:size=19;1"
+font-0 = "Noto Sans Bold:size=10;1"
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = now-playing
-modules-right = xkeyboard alsa cpu memory date powermenu
+modules-right = xkeyboard alsa battery cpu memory date powermenu
 
 tray-position = right 
 tray-padding = 2
@@ -335,14 +337,14 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+;format-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+;format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+;format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -421,7 +423,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = now-playing
+exec = /home/joao/bin/now-playing
 
 [settings]
 screenchange-reload = true

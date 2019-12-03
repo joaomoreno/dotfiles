@@ -1,5 +1,6 @@
 rofi.combi-modi:	window,drun,ssh
 rofi.theme:		solarized
-rofi.font:		Noto Sans 12
+#rofi.font:		Noto Sans 20
+rofi.font:		Noto Sans 11
 rofi.modi:		combi,run
 rofi.theme: /usr/share/rofi/themes/glue_pro_blue.rasi

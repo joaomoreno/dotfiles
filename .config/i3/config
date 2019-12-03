@@ -14,10 +14,13 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
+#font pango:Noto Sans 18
 font pango:Noto Sans 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
+bindsym $mod+d exec --no-startup-id rofi -show-icons -show drun
+# There also is the (new) i3-dmenu-desktop which only displays applications
 #font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -38,8 +41,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show drun
-# There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -120,16 +121,15 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 for_window [class="Google-chrome"] border pixel 0
 for_window [class="Chromium"] border pixel 0
-for_window [class="Firefox"] border pixel 0
-for_window [class="firefox"] border pixel 0
+for_window [class="firefox" window_role="browser"] border pixel 0
 for_window [title="About Mozilla Firefox"] floating enable
 assign [class="Code - Insiders"] 2
 for_window [class="Slack"] border pixel 0
 for_window [class="Slack"] move to workspace 3
 for_window [class="Microsoft Teams - Insiders"] border pixel 0
-for_window [class="Microsoft Teams - Insiders"] move to workspace 3
+for_window [class="Microsoft Teams - Insiders"] move to workspace 4
 for_window [title="Microsoft Teams Notification"] floating enable, sticky enable
-for_window [class="Spotify"] move to workspace 4
+for_window [class="Spotify"] move to workspace 5
 for_window [class="Spotify"] border pixel 0
 for_window [class="Ibus-ui-gtk3"] floating enable
 for_window [class="Gnome-calculator"] floating enable
@@ -187,7 +187,11 @@ bindsym XF86AudioPrev exec playerctl previous
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id amixer set Headphone toggle # mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Screen Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # Gnome
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
@@ -200,6 +204,7 @@ exec --no-startup-id setxkbmap us,us -variant ,intl -option grp:alt_space_toggle
 
 # Screensaver
 exec --no-startup-id xset dpms 1200
+exec --no-startup-id gnome-screensaver
 exec --no-startup-id xautolock -time 10 -locker "gnome-screensaver-command --lock"
 
 # compton
@@ -227,3 +232,6 @@ exec_always --no-startup-id $HOME/bin/launch-polybar.sh
 # Scratchpad
 bindsym $mod+Shift+n move scratchpad
 bindsym $mod+n scratchpad show
+
+# Network
+exec --no-startup-id nm-applet
