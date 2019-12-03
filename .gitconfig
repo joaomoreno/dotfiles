@@ -15,8 +15,6 @@
 	pr = "!f() { git checkout -b pr/$1 && git pull --no-rebase ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head; }; f"
 	pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -d $branch ; done"
 	pr-merge = "!f() { PR=$(git symbolic-ref HEAD) && ([[ \"$PR\" == \"refs/heads/pr/\"* ]] && (git checkout master && git merge $PR) || echo \"HEAD is not a PR branch: $PR\"); }; f"
-[credential]
-	helper = osxkeychain
 [pull]
 	rebase = true
 [color]
