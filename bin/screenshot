@@ -1,4 +1,0 @@
-#!/bin/sh
-FILE="$(mktemp ~/Pictures/screenshot.XXXXXX.png)"
-gnome-screenshot -f $FILE $*
-xclip -selection clipboard -t $(file -b --mime-type $FILE) < $FILE
